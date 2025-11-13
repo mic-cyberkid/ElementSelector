@@ -1,0 +1,109 @@
+<!-- test.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Element Selector Test</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 2rem;
+        background: #f9f9f9;
+      }
+      .box {
+        border: 1px solid #ccc;
+        padding: 16px;
+        margin: 10px 0;
+        background: white;
+        border-radius: 8px;
+      }
+      .highlight {
+        color: #0066cc;
+      }
+      button {
+        padding: 8px 14px;
+        font-size: 14px;
+        border: none;
+        background: #007bff;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Element Selector Demo Page</h1>
+    <p>
+      This page demonstrates the lightweight
+      <strong>ElementSelector</strong> module.
+    </p>
+
+    <div class="box">
+      <h2>Sample Section 1</h2>
+      <p>
+        Lorem ipsum dolor sit amet,
+        <span class="highlight">consectetur adipiscing elit</span>. Nulla
+        facilisi.
+      </p>
+    </div>
+
+    <div class="box">
+      <h2>Sample Section 2</h2>
+      <ul>
+        <li>Item A</li>
+        <li>Item B</li>
+        <li>Item C</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Form Example</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input id="name" type="text" placeholder="Enter name" />
+        <br /><br />
+        <label for="email">Email:</label>
+        <input id="email" type="email" placeholder="Enter email" />
+        <br /><br />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <button id="startSelector">Start Element Selector</button>
+
+    <pre
+      id="output"
+      style="
+        margin-top: 2rem;
+        background: #eee;
+        padding: 1rem;
+        border-radius: 6px;
+        max-width: 100%;
+        overflow: auto;
+      "
+    ></pre>
+
+    <script type="module">
+      import ElementSelector from "./ElementSelector.js";
+
+      const output = document.getElementById("output");
+      const startButton = document.getElementById("startSelector");
+
+      const selector = new ElementSelector({
+        onSelect: (selected) => {
+          output.textContent = JSON.stringify(selected, null, 2);
+        },
+        showTooltip: true,
+        singleSelection: true,
+      });
+
+      startButton.addEventListener("click", () => {
+        selector.enable();
+      });
+    </script>
+  </body>
+</html>
