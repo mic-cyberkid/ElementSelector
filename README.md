@@ -189,7 +189,8 @@ Free for personal or commercial use. Attribution appreciated but not required.
 
 ---
 
-**Authors:** mic-cyberkid  (2025)
+##Authors
+mic-cyberkid  (2025)
 GPT-5 (OpenAI Assistant) – technical architecture & documentation support
 
 Ready to embed, lightweight, and production-ready HTML Element Selector module.
